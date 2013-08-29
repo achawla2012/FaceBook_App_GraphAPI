@@ -3,7 +3,7 @@ import os
 import datetime
 now = datetime.datetime.now()
 
-facebook = Facebook.GraphAPI('<ACCESS_TOKEN')
+facebook = Facebook.GraphAPI('<ACCESS_TOKEN>')
 user = facebook.get_object("me")
 
 def Wall_post(Birthday):
