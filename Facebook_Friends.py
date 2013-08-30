@@ -1,12 +1,15 @@
 import Facebook
 import os
 
+facebook = Facebook.GraphAPI('<ACCESS_TOKEN>')
+user = facebook.get_object("me")
+
+#Post message on the wall of group with ID = "GroupID"
 def PostOnGroupWall(GroupID):
     facebook.put_object(GroupID, "feed", message="<MESSAGE>")    
 
+#List out the friends' name who are in the friend list.
 def facebook_friend():    
-    facebook = Facebook.GraphAPI('<ACCESS_TOKEN>')
-    user = facebook.get_object("me")
     friends = facebook.get_connections(user["id"], "friends")
     for friend in friends['data']:
         print friend['name'].encode('utf-8')
